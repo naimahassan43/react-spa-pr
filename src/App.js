@@ -18,11 +18,13 @@ function App() {
           <Link to="tutorials">Tutorials</Link>
         </li>
       </ul>
+      <hr />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
-        <Route path="tutorials" element={<Tutorials />} />
-        <Route path="tutorials/:title" element={<TDetails />} />
+        <Route path="tutorials" element={<Tutorials />}>
+          <Route path=":title" element={<TDetails />} />
+        </Route>
       </Routes>
     </div>
   );

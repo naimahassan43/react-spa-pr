@@ -1,12 +1,23 @@
 import React from "react";
+import { Outlet, Link } from "react-router-dom";
 
 const Tutorials = () => {
   return (
     <div>
-      <li>Regular Expression</li>
-      <li>JavaScript Tutorial Series</li>
-      <li>Mastering JavaScript Tutorial Series</li>
-      <li>Mastering React Tutorial Series</li>
+      <li>
+        <Link to="regex">Regular Expression</Link>
+      </li>
+      <li>
+        <Link to="js">JavaScript Tutorial Series</Link>
+      </li>
+      <li>
+        <Link to="python">Mastering Python Tutorial Series</Link>
+      </li>
+      <li>
+        <Link to="react">Mastering React Tutorial Series</Link>
+      </li>
+
+      <Outlet />
     </div>
   );
 };
