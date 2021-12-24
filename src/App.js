@@ -1,21 +1,38 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, NavLink } from "react-router-dom";
 import About from "./components/About";
 import Home from "./components/Home";
 import Tutorials from "./components/Tutorials";
 import TDetails from "./components/TDetails";
+import NoMatch from "./components/NoMatch";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <ul>
-        <li>
-          <Link to="/">Home</Link>
+        <li className="mainMenu">
+          <NavLink
+            className={({ isActive }) => (isActive ? "selected" : "")}
+            to="/"
+          >
+            Home
+          </NavLink>
         </li>
-        <li>
-          <Link to="about">About</Link>
+        <li className="mainMenu">
+          <NavLink
+            className={({ isActive }) => (isActive ? "selected" : "")}
+            to="about"
+          >
+            About
+          </NavLink>
         </li>
-        <li>
-          <Link to="tutorials">Tutorials</Link>
+        <li className="mainMenu">
+          <NavLink
+            className={({ isActive }) => (isActive ? "selected" : "")}
+            to="tutorials"
+          >
+            Tutorials
+          </NavLink>
         </li>
       </ul>
       <hr />
@@ -25,6 +42,7 @@ function App() {
         <Route path="tutorials" element={<Tutorials />}>
           <Route path=":title" element={<TDetails />} />
         </Route>
+        <Route path="*" element={<NoMatch />} />
       </Routes>
     </div>
   );
